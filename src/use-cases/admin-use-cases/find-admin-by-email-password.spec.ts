@@ -6,7 +6,7 @@ describe('Find Admin by  and password', ()=> {
         const adminRepository = new InMemoryAdminRepository();
         const findAdminByEmailAndPassword = new FindAdminByEmailAndPassword(adminRepository);
         
-        const admin = await findAdminByEmailAndPassword.execute('johndoe@gmail.com','6579e96f76baa00787a28653876c6127' );
+        const admin = await findAdminByEmailAndPassword.execute('johndoe@email.com','senha123' );
         expect(admin).toEqual(admin);
     });
 
@@ -14,14 +14,14 @@ describe('Find Admin by  and password', ()=> {
         const adminRepository = new InMemoryAdminRepository();
         const findAdminByEmailAndPassword = new FindAdminByEmailAndPassword(adminRepository);
         
-        await expect(findAdminByEmailAndPassword.execute('example-username-fake', '6579e96f76baa00787a28653876c6127')).rejects.toThrowError();
+        await expect(findAdminByEmailAndPassword.execute('johndoe@email.com', 'password-fake')).rejects.toThrowError('Incorrect password');
         
     });
     it('should not be able to find a admin with incorrect email', async()=> {
         const adminRepository = new InMemoryAdminRepository();
         const findAdminByEmailAndPassword = new FindAdminByEmailAndPassword(adminRepository);
         
-        await expect(findAdminByEmailAndPassword.execute('example-username-fake', '6579e96f76baa00787a28653876c6127')).rejects.toThrowError();
+        await expect(findAdminByEmailAndPassword.execute('example-username-fake', 'senha123')).rejects.toThrowError('Incorrect email');
     });
     
 });
