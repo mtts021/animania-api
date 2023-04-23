@@ -8,14 +8,14 @@ const app = express();
 
 app.use(express.json());
 app.use(express.urlencoded({extended: true}));
+app.get('/status', (req, res)=> {
+    res.send('ok');
+});
 app.use(sessionsRouter);
 app.use(jwtAuthenticationMiddleware);
 app.use(adminRouter);
 app.use(errorHandler);
 
-app.get('/status', (req, res)=> {
-    res.send('ok');
-});
 
 app.listen(3000, () => {
     console.log('http://localhost:3000');
