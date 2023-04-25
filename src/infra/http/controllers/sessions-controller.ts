@@ -1,5 +1,5 @@
 import { NextFunction, Request, Response } from 'express';
-import { IndexAdmin } from '../use-cases/admin-use-cases/index-admin';
+import { IndexAdmin } from '../../../use-cases/admin-use-cases/index-admin';
 import JWT, { SignOptions } from 'jsonwebtoken';
 import 'dotenv/config';
 

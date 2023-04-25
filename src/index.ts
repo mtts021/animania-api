@@ -1,7 +1,7 @@
 import express from 'express';
 import cors from 'cors';
-import adminRouter from './routes/admin-router';
-import sessionsRouter from './routes/sessions-router';
+import adminRouter from './infra/http/routes/admin-router';
+import sessionsRouter from './infra/http/routes/sessions-router';
 import jwtAuthenticationMiddleware from './app/middlewares/jwt-authentication.middleware';
 import errorHandler from './app/middlewares/error-handler.middleware';
 
