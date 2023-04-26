@@ -17,7 +17,6 @@ app.use(jwtAuthenticationMiddleware);
 app.use(adminRouter);
 app.use(errorHandler);
 
-
 app.listen(3001, () => {
     console.log('http://localhost:3001');
 });

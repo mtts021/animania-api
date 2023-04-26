@@ -1,5 +1,6 @@
 import InMemoryAdminRepository from '../../../tests/im-memory/repositories/in-memory-admin-repository';
 import FindAdminByEmailAndPassword from './find-admin-by-email-password';
+import {describe, it, expect} from 'vitest';
 
 describe('Find Admin by  and password', ()=> {
     it('should be able to find a admin by email e password', async()=> {

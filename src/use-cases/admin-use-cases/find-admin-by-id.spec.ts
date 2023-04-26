@@ -1,6 +1,6 @@
 import InMemoryAdminRepository from '../../../tests/im-memory/repositories/in-memory-admin-repository';
 import FindByIdAdmin  from './find-admin-by-id';
-
+import {describe, it, expect} from 'vitest';
 
 describe('Find By Id Admin', ()=> {
     const adminRepository = new InMemoryAdminRepository();
