@@ -2,8 +2,8 @@ import express from 'express';
 import cors from 'cors';
 import adminRouter from './infra/http/routes/admin-router';
 import sessionsRouter from './infra/http/routes/sessions-router';
-import jwtAuthenticationMiddleware from './app/middlewares/jwt-authentication.middleware';
-import errorHandler from './app/middlewares/error-handler.middleware';
+import jwtAuthenticationMiddleware from './infra/middlewares/jwt-authentication.middleware';
+import errorHandler from './infra/middlewares/error-handler.middleware';
 
 const app = express();
 app.use(cors());
