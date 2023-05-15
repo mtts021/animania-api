@@ -1,0 +1,99 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "API para utilização do projeto Animania",
+        "description": "Essa API permite ao usuário possuir uma lista de contatos, sendo necessário fazer o cadastro do nome, e-mail e telefone para salvar a informação.",
+        "version": "1.0.0"
+    },
+    "paths": {
+        "/sessions": {
+            "post": {
+                "summary": "Login de Admin no sistema",
+                "description": "Rota responsável por criar o token de acesso de um Admin ao sistema.",
+                "tags": [
+                    "Admin"
+                ],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/Admin"
+                            },
+                            "examples": {
+                                "usuário": {
+                                    "value": {
+                                        "email": "admin@email.com",
+                                        "password": "senha123"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Admin logado no sistema."
+                    },
+                    "404": {
+                        "description": "E-mail ou senha incorretos."
+                    }
+                }
+            }
+        },
+        "/admin/{id}": {
+            "get": {
+                "summary": "Localizar Admin pelo seu ID",
+                "description": "Através dessa rota será possível localizar as informações de um admin cadastrado no sistema. Localizando-o pelo seu ID",
+                "tags": [
+                    "Admin"
+                ],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "ID do Admin para a busca",
+                        "required": true
+                    }
+                ],
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Admin localizado"
+                    },
+                    "400": {
+                        "description": "Erro no envio de requisição. Token não foi fornecido."
+                    },
+                    "404": {
+                        "description": "Admin não localizado através do ID fornecido / Token fornecido é inválido"
+                    }
+                }
+            }
+        }
+    },
+    "components": {
+        "schemas": {
+            "Admin": {
+                "type": "object",
+                "properties": {
+                    "email": {
+                        "type": "string"
+                    },
+                    "password": {
+                        "type": "string"
+                    }
+                }
+            }
+        },
+        "securitySchemes": {
+            "bearerAuth": {
+                "type": "http",
+                "scheme": "bearer",
+                "bearerFormat": "JWT"
+            }
+        }
+    }
+}
