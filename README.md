@@ -38,3 +38,7 @@ npm run dev
 
 - ### /admin/:id: retorna os dados de um admin específico pelo ID.
 - ### /sessions: cria uma nova sessão de login para um admin.
+
+## Documentação:
+
+- ### A API é documentada utilizando o swagger e, com o projeto rodando, será possível verificá-lo em http://localhost:3001/api-docs/
