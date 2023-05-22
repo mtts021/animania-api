@@ -1,6 +1,7 @@
 import { NextFunction, Request, Response } from 'express';
 import JWT from 'jsonwebtoken';
 import 'dotenv/config';
+import { UnauthorizedError } from '../../app/helpers/api-error';
 
 declare module 'express-serve-static-core' {
     interface Request {
@@ -13,20 +14,24 @@ async function jwtAuthenticationMiddleware(req: Request, res: Response, next: Ne
         const authHeaders = req.headers.authorization;
     
         if(!authHeaders){
-            return res.status(400).json({message: 'Credentials not informed'});
+            throw new UnauthorizedError('Credentials not informed');
         }
         const [authType, token] = authHeaders.split(' ');
         if(authType !== 'Bearer' || !token) {
-            return res.status(400).json({message: 'Invalid authentication type'});
+            throw new UnauthorizedError('Invalid authentication type');
         }
         const secretKey = process.env.JWT_SECRET_KEY;
-        const tokenPayload = JWT.verify(token, secretKey);
-        if(typeof tokenPayload !== 'object' || !tokenPayload.sub){
-            return res.status(400).json({message: 'invalid token'});
+        try {
+            const tokenPayload = JWT.verify(token, secretKey);
+            if(typeof tokenPayload !== 'object' || !tokenPayload.sub){
+                throw new UnauthorizedError('invalid token');
+            }
+    
+            next();
+            req.adminId = Number(tokenPayload.sub);
+        } catch (error) {
+            throw new UnauthorizedError('invalid token');
         }
-
-        req.adminId = Number(tokenPayload.sub);
-        next();
     } catch (error) {
         next(error);
         

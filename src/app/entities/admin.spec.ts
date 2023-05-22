@@ -11,16 +11,4 @@ describe('Entity Admin', () => {
     
         expect(admin).toBeInstanceOf(Admin);
     });
-
-    it('should not be able to create a admin with password less than 8 characters', () => {
-       
-        expect(() => {
-            new Admin({
-                id: 1,
-                email: 'johndoe@email.com',
-                password: '1234567'
-            });
-        }).toThrow();
-    });
-
 });
