@@ -7,11 +7,7 @@ interface adminProps {
 export default class Admin {
     props: adminProps;
     constructor(props: adminProps,) {
-        if(props.password.length < 8) {
-            throw new Error('invalid password length');
-        }
         this.props = {...props};
-
     }
 
     get id(): number {
