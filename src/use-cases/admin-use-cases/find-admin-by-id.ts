@@ -1,4 +1,5 @@
 import Admin from 'app/entities/admin';
+import { NotFoundError } from '../../app/helpers/api-error';
 import AdminRepository from 'app/repositories/admin-repository';
 
 export default class FindByIdAdmin {
@@ -8,7 +9,7 @@ export default class FindByIdAdmin {
         const admin = await this.adminRepository.findById(adminId);
 
         if(!admin) {
-            throw new Error('Admin not found');
+            throw new NotFoundError('Admin not found');
         }
 
         return admin;
