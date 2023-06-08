@@ -1,5 +1,5 @@
 import FindAdminByEmailAndPassword from './find-admin-by-email-password';
-import { PrismaAdminRepository } from '../../database/repositories/prisma-admin-repository';
+import { PrismaAdminRepository } from '../../infra/database/repositories/prisma-admin-repository';
 import FindByIdAdmin from './find-admin-by-id';
 
 const adminRepository = new PrismaAdminRepository();

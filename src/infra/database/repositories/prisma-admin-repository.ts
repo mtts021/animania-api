@@ -1,7 +1,7 @@
 import { PrismaClient } from '@prisma/client';
 import Admin from '../../../app/entities/admin';
 import AdminRepository from '../../../app/repositories/admin-repository';
-import {PrismaAdminMapper } from '../mappers/PrismaAdminMapper';
+import {PrismaAdminMapper } from '../mappers/prisma-admin-mapper';
 
 export class PrismaAdminRepository implements AdminRepository{
     private prisma = new PrismaClient();

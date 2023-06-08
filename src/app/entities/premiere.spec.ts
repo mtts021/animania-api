@@ -7,7 +7,7 @@ describe('Entitie Release', () => {
             id: 1,
             title: 'One Piece',
             path_image: 'v1gecgve1ye7g17d23h.png',
-            genre: ['Ação', 'aventura', 'romance'],
+            genres: ['Ação', 'aventura', 'romance'],
             streaming: 'Church',
             totalEpisodes: 1322,
             currentEpisode: 4,

@@ -5,6 +5,7 @@ import sessionsRouter from './infra/http/routes/sessions-router';
 import docsApi from './infra/http/routes/documentation-router';
 import jwtAuthenticationMiddleware from './infra/middlewares/jwt-authentication.middleware';
 import errorHandler from './infra/middlewares/error-handler.middleware';
+import premiereRouter from './infra/http/routes/premiere-router';
 
 const app = express();
 app.use(cors());
@@ -17,6 +18,7 @@ app.get('/status', (req, res) => {
 app.use(sessionsRouter);
 app.use(jwtAuthenticationMiddleware);
 app.use(adminRouter);
+app.use(premiereRouter);
 app.use(errorHandler);
 
 app.listen(3001, () => {
