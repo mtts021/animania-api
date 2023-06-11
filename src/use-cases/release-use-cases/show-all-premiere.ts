@@ -6,7 +6,6 @@ export default class ShowAllPremiere {
 
     async execute(): Promise<Premiere[] | null> {
         const premiere = await this.premiereRepository.showAll();
-        console.log(premiere);
         return premiere;
     }
 }
