@@ -26,7 +26,7 @@ async function main() {
         update: {},
         create: {
             title: 'One Piece',
-            path_image: 'bhcbzhcvavc382y2.png',
+            path_image: 'bhcbzhcvavc382y2.jpg',
             genres: ['aventura', 'ação'],
             streaming: 'Netflix',
             totalEpisodes: 1320,
