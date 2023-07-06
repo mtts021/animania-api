@@ -12,3 +12,19 @@ model admin {
   email    String @unique
   password String
 }
+model premiere {
+  id Int @id @default(autoincrement())
+  title String
+  path_image String
+  genres String[]
+  streaming String
+  totalEpisodes Int
+  currentEpisode Int
+  releaseDate DateTime
+  isAiring String
+  season Int
+  weeklyDayAiring String
+  likes Int
+  deslikes Int
+  createdAt DateTime @default(now())
+}

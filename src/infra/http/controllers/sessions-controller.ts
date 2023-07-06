@@ -2,7 +2,7 @@ import { NextFunction, Request, Response } from 'express';
 import { IndexAdmin } from '../../../use-cases/admin-use-cases/index-admin';
 import JWT, { SignOptions } from 'jsonwebtoken';
 import 'dotenv/config';
-import { BadRequestError } from 'app/helpers/api-error';
+import { BadRequestError } from '../../../app/helpers/api-error';
 
 class SessionsController { 
     async createToken(req: Request, res: Response, next: NextFunction) {
