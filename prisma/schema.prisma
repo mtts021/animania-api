@@ -8,23 +8,24 @@ datasource db {
 }
 
 model admin {
-  id       Int    @id @default(autoincrement())
-  email    String @unique
-  password String
+  id       Int     @id
+  email    String? @unique(map: "unique_email")
+  password String?
 }
+
 model premiere {
-  id Int @id @default(autoincrement())
-  title String
-  path_image String
-  genres String[]
-  streaming String
-  totalEpisodes Int
-  currentEpisode Int
-  releaseDate DateTime
-  isAiring String
-  season Int
-  weeklyDayAiring String
-  likes Int
-  deslikes Int
-  createdAt DateTime @default(now())
+  id                Int       @id @default(autoincrement())
+  title             String    @db.VarChar
+  path_image        String?   @db.VarChar
+  genres            String?   @db.VarChar
+  streaming         String?   @db.VarChar
+  total_episodes    Int?
+  current_episode   Int?
+  release_date      DateTime? @db.Date
+  is_airing         Boolean?
+  season            String?   @db.VarChar
+  weekly_day_airing String?   @db.VarChar
+  likes             Int?
+  deslikes          Int?
+  created_at        DateTime? @default(now()) @db.Date
 }
