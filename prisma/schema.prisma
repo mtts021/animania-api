@@ -8,7 +8,7 @@ datasource db {
 }
 
 model admin {
-  id       Int     @id
+  id       Int     @id @default(autoincrement())
   email    String? @unique(map: "unique_email")
   password String?
 }
@@ -17,7 +17,7 @@ model premiere {
   id                Int       @id @default(autoincrement())
   title             String    @db.VarChar
   path_image        String?   @db.VarChar
-  genres            String?   @db.VarChar
+  genres            String    @db.VarChar
   streaming         String?   @db.VarChar
   total_episodes    Int?
   current_episode   Int?
