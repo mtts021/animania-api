@@ -2,15 +2,11 @@ import { NextFunction, Request, Response } from 'express';
 import { IndexAdmin } from '../../../use-cases/admin-use-cases/index-admin';
 import JWT, { SignOptions } from 'jsonwebtoken';
 import 'dotenv/config';
-import { BadRequestError } from '../../../app/helpers/api-error';
 
 class SessionsController { 
     async createToken(req: Request, res: Response, next: NextFunction) {
         const {email, password} = req.body;
 
-        if(!email || !password) {
-            throw new BadRequestError('email and password required');
-        }
         try {
             const admin = await IndexAdmin.findAdminByEmailAndPassword.execute(email, password);
             const {id} = admin;
