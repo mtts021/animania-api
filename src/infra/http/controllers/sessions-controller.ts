@@ -2,16 +2,13 @@ import { NextFunction, Request, Response } from 'express';
 import { FindAdminByEmailAndPassword } from '../../../use-cases/admin-use-cases/index-admin';
 import JWT, { SignOptions } from 'jsonwebtoken';
 import 'dotenv/config';
-import { BadRequestError } from '../../../app/helpers/api-error';
-import { PrismaAdminRepository } from '../../../infra/database/repositories/prisma-admin-repository';
+import { PrismaAdminRepository } from '../../database/repositories/prisma-admin-repository';
 
 class SessionsController {
     async createToken(req: Request, res: Response, next: NextFunction) {
         const { email, password } = req.body;
 
-        if (!email || !password) {
-            throw new BadRequestError('email and password required');
-        }
+
         const adminRepository = new PrismaAdminRepository();
         const findAdminByEmailAndPassword = new FindAdminByEmailAndPassword(adminRepository);
         try {
