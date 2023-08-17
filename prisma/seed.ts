@@ -21,7 +21,7 @@ async function main() {
         }
     });
 
-    await prisma.premiere.upsert({
+    await prisma.release.upsert({
         where: { id: 1 },
         update: {},
         create: {

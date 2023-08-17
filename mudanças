@@ -1,0 +1,4 @@
+- mudar o a nomeação de primeire para a release
+- add o convetionnal commit
+- add um docker file para o node
+- add testes integrados

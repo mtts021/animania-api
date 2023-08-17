@@ -5,6 +5,7 @@ generator client {
 datasource db {
   provider = "postgresql"
   url      = env("DATABASE_URL")
+  //shadowDatabaseUrl = env("SHADOW_DATABASE_URL")
 }
 
 model admin {
@@ -13,7 +14,7 @@ model admin {
   password String?
 }
 
-model premiere {
+model release {
   id                Int       @id @default(autoincrement())
   title             String    @db.VarChar
   path_image        String?   @db.VarChar
