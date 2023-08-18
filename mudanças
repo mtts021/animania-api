@@ -1,4 +1,3 @@
-- mudar o a nomeação de primeire para a release
-- add o convetionnal commit
+- add o convectional commit
 - add um docker file para o node
-- add testes integrados
+- add testes intregados
