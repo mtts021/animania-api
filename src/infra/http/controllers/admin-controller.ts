@@ -6,10 +6,12 @@ export class AdminController {
     async findById(req: Request<{ id: number }>, res: Response, next: NextFunction) {
         const adminRepository = new PrismaAdminRepository();
         const findAdminById = new FindByIdAdmin(adminRepository);
-        try {
-            const id = Number(req.params.id);
-            const admin = await findAdminById.execute(id);
-            res.status(200).json(admin);
+ 
+        const id = Number(req.params.id);
+        
+        try {  
+            const response = await findAdminById.execute(id);
+            return res.status(200).json(response);
         } catch (error) {
             next(error);
         }

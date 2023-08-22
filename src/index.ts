@@ -8,6 +8,7 @@ import errorHandler from './infra/middlewares/error-handler.middleware';
 import releaseRouter from './infra/http/routes/release-router';
 
 const app = express();
+
 app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
