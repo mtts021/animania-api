@@ -8,9 +8,9 @@ export default class PrismaReleaseRepository implements ReleaseRepository {
     private prisma = new PrismaClient();
   
     async showAll(): Promise<Release[]> {
-        const premieres = await this.prisma.release.findMany();
+        const releases = await this.prisma.release.findMany();
 
-        return premieres.map(PrismaPremiereMapper.toDomain);
+        return releases.map(PrismaPremiereMapper.toDomain);
     }
 
 }

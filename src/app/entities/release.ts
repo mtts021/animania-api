@@ -5,16 +5,17 @@ export interface releaseProps {
     title: string
     pathImage: string
     genres: string[]
-    streaming: string
+    streaming: string[]
     totalEpisodes: number
-    currentEpisode: number
-    releaseDate: Date
-    isAiring: boolean
-    season: number
-    weeklyDayAiring: string
+    nextEpisode?: number
+    releaseDate?: Date
+    status: 'em andamento' | 'finalizado' | 'cancelado' |'vai ao ar'
+    season: 'inverno' | 'verão' | 'primavera' | 'outono'
+    weeklyDay: 'segunda' | 'terça' | 'quarta' | 'quinta' | 'sexta' | 'sábado' | 'domingo'
     likes: number
-    deslikes: number
+    dislikes: number
     createdAt: Date
+    updatedAt?: Date
 }
 
 export default class Release {
@@ -39,35 +40,38 @@ export default class Release {
     get genres(): string[]  {
         return this.props.genres;
     }
-    get streaming(): string {
+    get streaming(): string[] {
         return this.props.streaming;
     }
     get totalEpisodes(): number {
         return this.props.totalEpisodes;
     }
-    get currentEpisode(): number {
-        return this.props.currentEpisode;
+    get nextEpisode(): number {
+        return this.props.nextEpisode;
     }
     get releaseDate(): Date {
         return this.props.releaseDate;
     }
-    get isAiring(): boolean {
-        return this.props.isAiring;
+    get status(): string {
+        return this.props.status;
     }
-    get season(): number {
+    get season(): string {
         return this.props.season;
     }
-    get weeklyDayAiring(): string {
-        return this.props.weeklyDayAiring;
+    get weeklyDay(): string {
+        return this.props.weeklyDay;
     }
     get likes(): number {
         return this.props.likes;
     }
-    get deslike(): number {
-        return this.props.deslikes;
+    get dislike(): number {
+        return this.props.dislikes;
     }
     get createdAt(): Date {
         return this.props.createdAt;
+    }
+    get updatedAt(): Date | null | undefined {
+        return this.props.updatedAt;
     }
 
 

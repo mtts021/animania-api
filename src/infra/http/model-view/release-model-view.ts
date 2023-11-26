@@ -9,14 +9,15 @@ export class ReleaseModelView {
             genres: release.genres,
             streaming: release.streaming,
             totalEpisodes: release.totalEpisodes,
-            currentEpisode: release.currentEpisode,
+            nextEpisode: release.nextEpisode,
             releaseDate: release.releaseDate,
-            isAiring: release.isAiring,
+            status: release.status,
             season: release.season,
-            weeklyDayAiring: release.weeklyDayAiring,
+            weeklyDay: release.weeklyDay,
             likes: release.likes,
-            deslikes: release.deslike,
+            dislikes: release.dislike,
             createdAt: release.createdAt,
+            updatedAt: release.updatedAt
         };
     }
 }

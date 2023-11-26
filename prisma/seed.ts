@@ -28,16 +28,33 @@ async function main() {
             title: 'One Piece',
             path_image: 'bhcbzhcvavc382y2.jpg',
             genres: ['aventura', 'ação'],
-            streaming: 'Netflix',
+            streaming: ['Netflix'],
             total_episodes: 1320,
-            current_episode: 1321,
+            next_episode: 1321,
             release_date: new Date(2023 / 7 / 10),
-            is_airing: true,
-            season: 12,
-            weekly_day_airing: 'Domingo',
+            status: 'em andamento',
+            season: 'verão',
+            weekly_day: 'domingo',
             likes: 2000,
-            deslikes: 236,
-            created_at: new Date()
+            dislikes: 236,
+        }
+    });
+    await prisma.release.upsert({
+        where: { id: 2 },
+        update: {},
+        create: {
+            title: 'Mashle',
+            path_image: 'bx131863-G7bfAMPea08v.jpg',
+            genres: ['aventura', 'ação'],
+            streaming: ['Netflix'],
+            total_episodes: 1320,
+            next_episode: 1321,
+            release_date: new Date(2023 / 7 / 12),
+            status: 'em andamento',
+            season: 'primavera',
+            weekly_day: 'quarta',
+            likes: 2000,
+            dislikes: 26,
         }
     });
 
