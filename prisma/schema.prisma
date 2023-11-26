@@ -15,18 +15,19 @@ model admin {
 }
 
 model release {
-  id                Int       @id @default(autoincrement())
-  title             String    @db.VarChar
-  path_image        String?   @db.VarChar
-  genres            String[]  @db.VarChar
-  streaming         String?   @db.VarChar
-  total_episodes    Int?      @db.Integer
-  current_episode   Int?      @db.Integer
-  release_date      DateTime? @db.Date
-  is_airing         Boolean?
-  season            Int       @db.Integer
-  weekly_day_airing String?   @db.VarChar
-  likes             Int?      @db.Integer
-  deslikes          Int?      @db.Integer
-  created_at        DateTime? @default(now()) @db.Date
+  id             Int       @id @default(autoincrement())
+  title          String    @db.VarChar
+  path_image     String?   @db.VarChar
+  genres         String[]  @db.VarChar
+  streaming      String[]  @db.VarChar
+  total_episodes Int?      @db.Integer
+  next_episode   Int?      @db.Integer
+  release_date   DateTime? @db.Date
+  status         String
+  season         String    @db.VarChar
+  weekly_day     String?   @db.VarChar
+  likes          Int?      @db.Integer
+  deslikes       Int?      @db.Integer
+  created_at     DateTime? @default(now()) @db.Date
+  updated_at     DateTime? @db.Date
 }
