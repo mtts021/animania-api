@@ -1,5 +1,5 @@
 import { release as RawRelease } from '@prisma/client';
-import Release from '../../../app/entities/release';
+import Release, {seasonType, statusType, weeklyDayType} from '../../../app/entities/release';
 
 
 
@@ -14,9 +14,9 @@ export class PrismaPremiereMapper {
             totalEpisodes: raw.total_episodes,
             nextEpisode: raw.next_episode,
             releaseDate: raw.release_date,
-            status: <'em andamento' | 'finalizado' | 'cancelado' | 'vai ao ar'>raw.status,
-            season: <'inverno' | 'verão' | 'primavera' | 'outono'>raw.season,
-            weeklyDay: <'segunda' | 'terça' | 'quarta' | 'quinta' | 'sexta' | 'sábado' | 'domingo'>raw.weekly_day,
+            status: <statusType>raw.status,
+            season: <seasonType>raw.season,
+            weeklyDay: <weeklyDayType>raw.weekly_day,
             likes: raw.likes,
             dislikes: raw.dislikes,
             createdAt: raw.created_at,

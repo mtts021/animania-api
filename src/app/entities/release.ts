@@ -1,5 +1,9 @@
 import { Replace } from 'app/helpers/replace';
 
+export type statusType = 'em andamento' | 'finalizado' | 'cancelado' |'vai ao ar'
+export type seasonType = 'inverno' | 'verão' | 'primavera' | 'outono'
+export type weeklyDayType = 'segunda' | 'terça' | 'quarta' | 'quinta' | 'sexta' | 'sábado' | 'domingo'
+
 export interface releaseProps {
     id: number
     title: string
@@ -9,9 +13,9 @@ export interface releaseProps {
     totalEpisodes: number
     nextEpisode?: number
     releaseDate?: Date
-    status: 'em andamento' | 'finalizado' | 'cancelado' |'vai ao ar'
-    season: 'inverno' | 'verão' | 'primavera' | 'outono'
-    weeklyDay: 'segunda' | 'terça' | 'quarta' | 'quinta' | 'sexta' | 'sábado' | 'domingo'
+    status: statusType
+    season: seasonType
+    weeklyDay: weeklyDayType
     likes: number
     dislikes: number
     createdAt: Date
