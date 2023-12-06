@@ -78,6 +78,149 @@
                     }
                 }
             }
+        },
+
+        "/release": {
+            "get": {
+                "summary": "Obter os lançamentos",
+                "description": "Através dessa rota será possível obter todas os lançamentos cadastrado na API.",
+                "tags": [
+                    "Release"
+                ],
+                "parameters": [
+                    {
+                        "in": "query",
+                        "name": "season",
+                        "required": false,
+                        "schema": {
+                          "type": "string"
+                        },
+                        "description": "Estação do ano no calendario japonês"
+                    },
+                    {
+                        "in": "query",
+                        "name": "weekly_day",
+                        "required": false,
+                        "schema": {
+                          "type": "string"
+                        },
+                        "description": "dia da semana dos lançamentos"
+                    }
+                ],
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "retorna todas os lançamentos.",
+                        "content": {
+                            "application/json":{
+                                "examples": {
+                                    "successful response":{
+                                        "value":[
+                                            {
+                                                "id": 4,
+                                                "title": "One Piece",
+                                                "pathImage": "op287463-jshsKPlw23c.jpg",
+                                                "genres": [
+                                                    "ação",
+                                                    "aventura"
+                                                ],
+                                                "streaming": [
+                                                    "funimation"
+                                                ],
+                                                "totalEpisodes": null,
+                                                "nextEpisode": null,
+                                                "releaseDate": null,
+                                                "status": "em andamento",
+                                                "season": "outono",
+                                                "weeklyDay": "quarta",
+                                                "likes": 2500,
+                                                "dislikes": 150,
+                                                "createdAt": "2023-11-28T00:00:00.000Z",
+                                                "updatedAt": null
+                                            },
+                                            {
+                                                "id": 5,
+                                                "title": "Naruto",
+                                                "pathImage": "nr874512-hd9sjlKqo12.jpg",
+                                                "genres": [
+                                                    "ação",
+                                                    "aventura"
+                                                ],
+                                                "streaming": [
+                                                    "netflix"
+                                                ],
+                                                "totalEpisodes": null,
+                                                "nextEpisode": null,
+                                                "releaseDate": null,
+                                                "status": "em andamento",
+                                                "season": "outono",
+                                                "weeklyDay": "quinta",
+                                                "likes": 2000,
+                                                "dislikes": 120,
+                                                "createdAt": "2023-11-28T00:00:00.000Z",
+                                                "updatedAt": null
+                                            },
+                                            {
+                                                "id": 6,
+                                                "title": "Attack on Titan",
+                                                "pathImage": "aot561237-KJhaf9lsd99.jpg",
+                                                "genres": [
+                                                    "ação",
+                                                    "drama"
+                                                ],
+                                                "streaming": [
+                                                    "crunchyroll"
+                                                ],
+                                                "totalEpisodes": null,
+                                                "nextEpisode": null,
+                                                "releaseDate": null,
+                                                "status": "em andamento",
+                                                "season": "outono",
+                                                "weeklyDay": "sábado",
+                                                "likes": 1800,
+                                                "dislikes": 90,
+                                                "createdAt": "2023-11-28T00:00:00.000Z",
+                                                "updatedAt": null
+                                            }]
+                                    }
+                                }
+                            }
+                          }
+                        },
+                    "401": {
+                        "description": "Token não foi fornecido ou inválido.",
+                        "content": {
+                            "application/json": {
+                                "examples": {
+                                    "auth inválida":{
+                                        "value":{
+                                            "message": "Credentials not informed"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Erro no envio da requisição. Como enviar uma requisição com query params não suportadas",
+                        "content": {
+                            "application/json": {
+                                "examples": {
+                                    "query params inválida": {
+                                        "value":{
+                                            "error": "temporada is not allowed"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
         }
     },
     "components": {
@@ -92,6 +235,9 @@
                         "type": "string"
                     }
                 }
+            },
+            "Release": {
+
             }
         },
         "securitySchemes": {
